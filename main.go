@@ -29,6 +29,7 @@ func main() {
 	dbUser, dbPassword, dbHost, dbName, dbPort := getDbDetails()
 	db, err := gorm.Open("postgres", fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable password=%s", dbHost, dbPort, dbUser, dbName, dbPassword))
 	if err != nil {
+		fmt.Println(dbUser, dbPassword, dbHost, dbName, dbPort)
 		panic("failed to connect database")
 	}
 	defer db.Close()
